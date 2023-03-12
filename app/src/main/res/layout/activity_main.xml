@@ -5,123 +5,77 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <!--제목-->
+    //제목
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:text="제목*"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="8pt" />
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="10dp"
-        android:hint="제목(필수)"
-        android:textSize="10pt" />
+        android:layout_marginHorizontal="20dp" />
 
-    <!--내용-->
+    //상세 내용
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:text="상세 내용"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="8pt" />
+
     <EditText
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
-        android:hint="내용(선택)"
-        android:textSize="6pt" />
+        android:hint="ex) 카페, 식사, 코노" />
 
-    <!--총금액-->
-    <LinearLayout
+    //더치페이 종류 선택
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
-        <EditText
-            android:id="@+id/total_price"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:hint="총 금액"
-            android:textSize="6pt"
-            android:inputType="number"
-            android:textAlignment="center"/>
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:text="더치페이 종류"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="8pt" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="₩"
-            android:textColor="@color/black"
-            android:textSize="8pt"
-            android:layout_gravity="center"/>
-    </LinearLayout>
-
-    <!--분배 라디오버튼-->
     <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal" >
         <RadioButton
-            android:id="@+id/fair_btn"
-            android:layout_width="0dp"
+            android:id="@+id/ver1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="50dp"
-            android:text="균등 분배" />
-
+            android:layout_marginLeft="20dp"
+            android:text="N빵"
+            android:textSize="7pt" />
         <RadioButton
-            android:id="@+id/unfair_btn"
-            android:layout_width="0dp"
+            android:id="@+id/ver2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="50dp"
-            android:text="비균등 분배" />
-
+            android:layout_marginLeft="30dp"
+            android:text="N빵 + α"
+            android:textSize="7pt" />
     </RadioGroup>
-    <!--분배 선택에 따라 나타낼 프래그먼트-->
-    <!--<fragment
-        android:id="@+id/radio_fragment"
-        android:name="com.example.dutchpay_calculator.dutchpay"
+
+    //선택한 라디오 버튼에 따라 다른 fragment가 나타남
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:name="com.example.dutchpay_calculator.V1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
-
-    <!--입력된 값을 모두 합한 금액-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="#6C6C6C"
-            android:textSize="5pt"
-            android:text="총합  "
-            />
-        <TextView
-            android:id="@+id/sum_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:textSize="10pt"
-            android:textStyle="bold"
-            android:text="10000"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="8pt"
-            android:text="원"
-            />
-
-    </LinearLayout>
-
-    <!--확인 버튼-->
-    <Button
-        android:id="@+id/confirm_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="확인"
-        android:layout_gravity="center_horizontal"
-        />
-
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>
