@@ -61,14 +61,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="N빵"
-            android:textSize="7pt" />
+            android:textSize="8pt" />
         <RadioButton
             android:id="@+id/ver2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="N빵 + α"
-            android:textSize="7pt" />
+            android:textSize="8pt" />
     </RadioGroup>
 
     //선택한 라디오 버튼에 따라 다른 fragment가 나타남
