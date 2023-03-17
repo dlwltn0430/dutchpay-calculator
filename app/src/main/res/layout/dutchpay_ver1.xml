@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_vertical" >
         <TextView
             android:layout_width="wrap_content"
@@ -85,13 +85,22 @@
             android:textColor="@color/black"
             android:textSize="8pt" />
         <TextView
+            android:id="@+id/dutchpay_result"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:text="더치페이 결과"
             android:textColor="@color/black"
             android:textSize="8pt"
             android:gravity="center_vertical"/>
     </LinearLayout>
+
+    //계산하기 버튼
+    <Button
+        android:id="@+id/showResult"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="더치페이 결과 보기"/>
 
 </LinearLayout>

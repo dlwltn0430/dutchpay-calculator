@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +16,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dutchpayV2: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //선택하는 radio button에 따라 다른 fragment 보여주기
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         fragmentContainer = findViewById(R.id.fragment_container)
         radioGroup = findViewById(R.id.radio_group)
         dutchpayV1 = findViewById(R.id.ver1)
@@ -56,7 +54,24 @@ class V1 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dutchpay_ver1, container, false)
+        val view = inflater.inflate(R.layout.dutchpay_ver1, container, false)
+        // {정산 요청 금액 / 요청 인원} 값 보여주기
+        val showResult = view.findViewById<Button>(R.id.showResult)
+        val requestedNum = view.findViewById<EditText>(R.id.requestedNum)
+        val requestedAmount = view.findViewById<EditText>(R.id.requestedAmount)
+        val dutchpay_result = view.findViewById<TextView>(R.id.dutchpay_result)
+
+        showResult?.setOnClickListener {
+            val input1 = requestedNum.text.toString().toIntOrNull()
+            val input2 = requestedAmount.text.toString().toIntOrNull()
+            if (input1 != null && input2 != null) {
+                val result = input2 / input1
+                dutchpay_result.text = "인당 " + result.toString() + "원"
+            } else {
+                Toast.makeText(requireContext(), "입력값이 유효하지 않습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return view
     }
 }
 
